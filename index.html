@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Index</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body onload="startTime()">
+    <div class="top-container">
+        <div class="clock-box">
+            <div id="txt"></div>
+            <script>
+                function startTime() {
+                  const today = new Date();
+                  let h = today.getHours();
+                  let m = today.getMinutes();
+                  let s = today.getSeconds();
+                  m = checkTime(m);
+                  s = checkTime(s);
+                  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+                  setTimeout(startTime, 1000);
+                }
+                
+                function checkTime(i) {
+                  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+                  return i;
+                }
+                </script>
+        </div>
+        <div class="head-box"><button class="button1"><h1>Write it out</h1></button></div>
+    </div>
+    <div class="text-container">
+        <div class="text-box"><textarea>...></textarea></div>
+    </div>
+    <div class="button-container">
+        <div><button class="button2" onClick="window.location.reload();"><p class="button-txt">RESTART</p></button></div>
+    </div>
+
+
+        
+    </body>
+</html>
